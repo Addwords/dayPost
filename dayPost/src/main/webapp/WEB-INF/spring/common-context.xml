@@ -11,6 +11,10 @@
 	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
+	<!-- Transaction Setting-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourcePostgres"/>
+	</bean>
 
 
 

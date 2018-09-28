@@ -4,7 +4,7 @@
 
 <mapper namespace="com.day.post.mapper.DiPostMapper">
 
-<!-- 게시글 list -->
+	<!-- 게시글 list -->
 	<select id="selectPostList" resultType="com.day.post.vo.DiPostVO">
 
 	<![CDATA[
@@ -14,6 +14,7 @@
 	]]>
 	</select>
 
+	<!-- 게시글 전체 건수 -->
 
 
 

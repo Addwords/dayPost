@@ -4,10 +4,42 @@
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+	<!-- 트렌젝션 관련 -->
+	<aop:config>
+		<aop:pointcut id="defaultBusinessOperation" expression="execution(* com.day.post..*Impl.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="defaultBusinessOperation"/>
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" read-only="true" propagation="SUPPORTS"/>
+			<tx:method name="insert*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 인터셉터 관련 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/**/**"/>
+			<beans:bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+				<beans:property name="cacheSeconds" value="0"/>
+				<!-- 이전버젼에서 사용되던 설정들 이제 사용안됨 -->
+				<!-- <beans:property name="useExpiresHeader" value="true"/>
+				<beans:property name="useCacheControlHeader" value="true"/>
+				<beans:property name="useCacheControlNoStore" value="true"/> -->
+			</beans:bean>
+		</interceptor>
+	</interceptors>
+
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	<context:component-scan base-package="com.day.post" />
@@ -22,13 +54,13 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-		<beans:property name="order" value="2" />		
+		<beans:property name="order" value="1" />		
 	</beans:bean>
 	
 	<!-- tiles3설정 -->
 	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
-		<beans:property name="order" value="1"/>	
+		<beans:property name="order" value="0"/>	
 	</beans:bean>
 	
 	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">

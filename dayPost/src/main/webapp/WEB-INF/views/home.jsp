@@ -8,12 +8,14 @@
 </div>
 <hr>
 
-
-<form name="post">
-<input type="text" name="wrt" id="wrt">
-<a href="#" id="" class="btn black" onclick="">게시</a>
-</form>
-
+	<div class="">
+		<form name="wrt">
+		
+			<input type="text" name="title" id="title" class="">
+			<textarea id=""></textarea>
+		<a href="#" id="" class="btn black" onclick="">등록</a>
+		</form>
+	</div>
 <script type="text/javascript">
 $(function(){
 	main.init();
