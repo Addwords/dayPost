@@ -1,13 +1,11 @@
 package com.day.post.service;
 
-import java.util.List;
-
-import com.day.post.vo.DiPostVO;
+import java.util.Map;
 
 public interface DiPostService {
 
 	
 	//전체 게시글 List
-	List<DiPostVO> selectPostList();
+	Map<String,Object> selectPostList();
 	
 }

@@ -1,6 +1,8 @@
 package com.day.post.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +24,16 @@ public class DiPostServiceImpl implements DiPostService{
 		
 		//log.debug();
 		
+		Map<String,Object> resultMap = new HashMap<String, Object>();
 		
-		return diPostMapper.selectPostList();
+		int listcnt = diPostMapper.selectPostCnt();
+		
+		List<DiPostVO> resultlist = diPostMapper.selectPostList();
+		
+		resultMap.put("listcnt", listcnt);
+		resultMap.put("resultlist", resultlist);
+		
+		return resultMap;
 	}
 	
 	
