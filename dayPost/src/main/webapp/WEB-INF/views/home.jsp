@@ -3,7 +3,7 @@
 <html>
 <body>
 
-<div>
+<div class="header">
 	<h1>Let's git it!</h1>
 </div>
 <hr>
@@ -17,6 +17,7 @@
 <script type="text/javascript">
 $(function(){
 	main.init();
+	
 });
 var main = (function(){
 	
