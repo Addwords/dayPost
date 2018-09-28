@@ -14,7 +14,7 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!-- Processes application requests -->
+	<!-- Processes application requests --> 
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -29,10 +29,12 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>*.day</url-pattern>
 	</servlet-mapping>
-
-<welcome-file-list>
-<welcome-file>/index.day</welcome-file>
-</welcome-file-list>
+	
+	<!-- 첫화면 설정 -->
+	<!-- 타일즈를 설정하면서 URI매핑관련 오류 있었음 -->
+    <welcome-file-list>
+    	<welcome-file>/home.day</welcome-file>
+    </welcome-file-list>
 
 
 </web-app>

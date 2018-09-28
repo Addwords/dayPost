@@ -1,9 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=utf-8" %>
 <html>
-<head>
-	<title>Home</title>
-</head>
 <body>
 <h1>
 	Hello world!
@@ -14,20 +11,20 @@
 
 <form name="post">
 <input type="text" name="wrt" id="wrt">
-<input>
+<a href="#" id="" class="btn" onclick="">게시</a>
 </form>
-
-<script>
+<!-- <script type="text/javascript" src="/resources/js/jquery-3.3.1.js"></script> -->
+<script type="text/javascript">
 $(function(){
-	testing.second();
-})
+	testing.init();
+});
 var testing = (function(){
 	return{
-		second : function(){
+		init : function(){
 			console.log("init테스트 입니다.");
 		}
 	}
-});
+})();
 
 </script>
 

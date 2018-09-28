@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+ 
+    <!-- (1) 레이아웃을 적용하지않는화면-->    
+<!--     <definition name=".login" template="/WEB-INF/jsp/tileLayout/loginLayout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/jsp/tilesView/header.jsp" />
+        <put-attribute name="menu" value="" />        
+        <put-attribute name="footer" value="" />
+    </definition> -->
+ 
+    <!-- (2) 레이아웃을 적용하는화면-->
+    <definition name="rootile" template="/WEB-INF/tiles/layout/mainlayout.jsp">
+        <put-attribute name="lib" value="/WEB-INF/tiles/tile/tilelib.jsp" />
+        <put-attribute name="header" value="/WEB-INF/tiles/tile/tileheader.jsp" />
+        <put-attribute name="body" value="/WEB-INF/tiles/tile/tilebody.jsp" />        
+        <put-attribute name="footer" value="/WEB-INF/tiles/tile/tilefooter.jsp" />
+    </definition>
+    
+    <!-- (1) -->    
+<!--     <definition name="/login/*" extends=".login">
+      <put-attribute name="body" value="/WEB-INF/jsp/login/{1}.jsp" />
+    </definition> -->
+ 
+    <!-- (2) -->
+   <definition name="home" extends="rootile">      
+      <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+    </definition>
+</tiles-definitions>
