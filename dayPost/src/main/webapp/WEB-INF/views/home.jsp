@@ -9,6 +9,9 @@
 <hr>
 
 	<div class="">
+		<ul>
+			<li><b class="cnt">0</b>건</li>
+		</ul>
 		<form name="wrt">
 		
 			<input type="text" name="title" id="title" class="">

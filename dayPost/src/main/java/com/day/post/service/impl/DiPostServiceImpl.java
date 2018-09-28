@@ -15,10 +15,17 @@ public class DiPostServiceImpl implements DiPostService{
 	@Autowired
 	private DiPostMapper diPostMapper;
 	
+	
+	//게시글 list
 	@Override
-	public List<DiPostVO> selectPostList() {
+	public Map<String, Object> selectPostList() {
+		
+		//log.debug();
+		
+		
 		return diPostMapper.selectPostList();
 	}
-
+	
+	
 	
 }

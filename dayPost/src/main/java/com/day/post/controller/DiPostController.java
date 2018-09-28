@@ -34,6 +34,7 @@ public class DiPostController {
 			List<DiPostVO> resultList = diPostService.selectPostList();
 			
 			map.put("errorYn", "N");
+			
 			map.put("result", resultList);
 			
 		}catch(Exception e) {

@@ -2,13 +2,27 @@ package com.day.post.vo;
 
 public class DiPostVO {
 
-	private int dayid;
-	private String hdctg;
-	private String title;
-	private String contents;
-	private String use_yn;
-	private String cret_dt;
+	private int dayid; //게시글아이디
+	private String hdctg; //분류
+	private String title; //제목
+	private String contents; //내용
+	private String use_yn; //사용여부
+	private String cret_dt; //생성일
+	private String upd_dt; //수정일
+	private int totalcnt; //전체건수
 	
+	public String getUpd_dt() {
+		return upd_dt;
+	}
+	public void setUpd_dt(String upd_dt) {
+		this.upd_dt = upd_dt;
+	}
+	public int getTotalcnt() {
+		return totalcnt;
+	}
+	public void setTotalcnt(int totalcnt) {
+		this.totalcnt = totalcnt;
+	}
 	public int getDayid() {
 		return dayid;
 	}
@@ -36,8 +50,9 @@ public class DiPostVO {
 	public String getUse_yn() {
 		return use_yn;
 	}
-	public void setUse_yn(String use_yn) {
+	public DiPostVO setUse_yn(String use_yn) {
 		this.use_yn = use_yn;
+		return this;
 	}
 	public String getCret_dt() {
 		return cret_dt;
