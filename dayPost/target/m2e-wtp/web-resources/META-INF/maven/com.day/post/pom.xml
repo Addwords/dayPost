@@ -39,6 +39,20 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 				
+		<!-- JDBC ConnectionPool -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>2.7.8</version>
+        </dependency>		
+		<!-- jdbc Driver-->
+        <dependency>
+            <groupId>org.lazyluke</groupId>
+            <artifactId>log4jdbc-remix</artifactId>
+            <version>0.2.7</version>
+        </dependency>
+				
+				
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>

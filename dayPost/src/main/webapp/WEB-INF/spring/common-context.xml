@@ -14,7 +14,26 @@
 
 
 
+    <bean id="FQDNBeanNameGenerator" class="com.day.post.common.FQDNBeanNameGenerator"/>
 
+    <!-- mapper자동등록 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    	<property name="basePackage" value="com.day.post.mapper"/>
+    	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    	<property name="nameGenerator" ref="FQDNBeanNameGenerator"/>
+    </bean>
+	
+	<!-- mybatis sessionFactory mybatis DB연결을 위한 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourcePostgres"/>
+		<property name="configLocation" value="classpath:/config/mybatis-configuration.xml"/>
+		<property name="mapperLocations" value="classpath*:mybatis/mappers/*.xml"/>
+	</bean>
+	
+	<!-- mybatis sqlSessionTemplate mybatis DB연결을 위한 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory"/>	
+	</bean>
 
 
 </beans>
