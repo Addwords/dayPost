@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.day.post.mapper.DiPostMapper">
+
+<!-- 게시글 list -->
+	<select id="selectPostList" resultType="com.day.post.vo.DiPostVO">
+
+	<![CDATA[
+		SELECT *
+		FROM DAYDB.DI_POST_BAS
+
+	]]>
+	</select>
+
+
+
+
+
+</mapper>
