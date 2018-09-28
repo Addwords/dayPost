@@ -10,12 +10,17 @@
 	<![CDATA[
 		SELECT *
 		FROM DAYDB.DI_POST_BAS
-
+		ORDER BY DAYID
 	]]>
 	</select>
 
 	<!-- 게시글 전체 건수 -->
-
+	<select id="selectPostCnt" resultType="Integer">
+	<![CDATA[
+		SELECT COUNT(1)
+		FROM DAYDB.DI_POST_BAS
+	]]>
+	</select>
 
 
 

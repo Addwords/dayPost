@@ -30,15 +30,11 @@ public class DiPostController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		try {
-			
-			List<DiPostVO> resultList = diPostService.selectPostList();
-			
 			map.put("errorYn", "N");
-			
-			map.put("result", resultList);
+			map.put("result", diPostService.selectPostList());
 			
 		}catch(Exception e) {
-			log.error("{}",e);
+			log.debug("{}",e.getMessage());
 			map.put("errorYn", "Y");
 			map.put("result", "ERROR");
 		}

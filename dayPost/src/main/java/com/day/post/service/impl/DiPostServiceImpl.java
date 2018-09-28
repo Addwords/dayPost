@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,8 @@ import com.day.post.vo.DiPostVO;
 @Service(value="com.day.post.service.impl.DiPostServiceImpl")
 public class DiPostServiceImpl implements DiPostService{
 
+	protected Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private DiPostMapper diPostMapper;
 	
@@ -22,7 +26,7 @@ public class DiPostServiceImpl implements DiPostService{
 	@Override
 	public Map<String, Object> selectPostList() {
 		
-		//log.debug();
+		log.debug("selectPostList : {}", diPostMapper.toString());
 		
 		Map<String,Object> resultMap = new HashMap<String, Object>();
 		
