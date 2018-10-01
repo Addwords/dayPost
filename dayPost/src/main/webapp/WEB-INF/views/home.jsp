@@ -15,7 +15,7 @@
 		<form name="wrt">
 		
 			<input type="text" name="title" id="title" class="">
-			<textarea id=""></textarea>
+			<textarea id="contents"></textarea>
 		<a href="#" id="" class="btn black" onclick="">등록</a>
 		</form>
 	</div>
