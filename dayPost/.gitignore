@@ -10,10 +10,30 @@
 /TODO
 
 # ignore all files in the build/ directory
-build/
+# build/
 
 # ignore doc/notes.txt, but not doc/server/arch.txt
 doc/*.txt
 
 # ignore all .pdf files in the doc/ directory
 doc/**/*.pdf
+
+/.settings/
+/target/
+/bin/
+/lib/
+/.idea/
+/classes/
+/caches/
+/deamon/
+/native/
+/.vertx/
+/.gradle/
+/logs/
+/out/
+/wrapper/
+/gradle/wrapper/gradle-wrapper.properties
+.classpath
+.project
+.springBeans
+*.DS_store

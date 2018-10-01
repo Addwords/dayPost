@@ -36,7 +36,7 @@
 	
 	<!-- mybatis sqlSessionTemplate mybatis DB연결을 위한 -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSessionFactory"/>	
+		<constructor-arg index="0" ref="sqlSessionFactory"/>
 	</bean>
 
 
