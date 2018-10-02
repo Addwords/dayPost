@@ -28,7 +28,7 @@
 	<!-- mybatis sessionFactory mybatis DB연결을 위한 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSourcePostgres"/>
-		<property name="configLocation" value="classpath:/config/mybatis-configuration.xml"/>
+		<property name="configLocation"  value="classpath:/config/mybatis-configuration.xml"/>
 		<property name="mapperLocations" value="classpath*:mybatis/mappers/*.xml"/>
 	</bean>
 	

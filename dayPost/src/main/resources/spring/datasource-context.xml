@@ -11,6 +11,8 @@
 	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
+
+	<!-- Connection Class 생성자? -->
   <bean id="postHikariConfig" class="com.zaxxer.hikari.HikariConfig">
   	<property name="poolName" value="${jdbc.postgre.poolName}"/>
   	<property name="driverClassName" value="${jdbc.postgre.driver}"/>
