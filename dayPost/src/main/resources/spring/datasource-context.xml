@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+  <bean id="postHikariConfig" class="com.zaxxer.hikari.HikariConfig">
+  	<property name="poolName" value="${jdbc.postgre.poolName}"/>
+  	<property name="driverClassName" value="${jdbc.postgre.driver}"/>
+  	<property name="jdbcUrl" value="${jdbc.postgre.url}"/>
+  	<property name="username" value="${jdbc.postgre.user}"/>
+  	<property name="password" value="${jdbc.postgre.pwd}"/>
+  	<property name="connectionTimeout" value="${jdbc.postgre.connectionTimeout}"/>
+  	<property name="maxLifetime" value="${jdbc.postgre.maxLifetime}"/>
+  	<property name="maximumPoolSize" value="${jdbc.postgre.maximumPoolSize}"/>
+  	<property name="minimumIdle" value="${jdbc.postgre.minimumIdle}"/>
+  	<property name="idleTimeout" value="${jdbc.postgre.idleTimeout}"/>
+  	<property name="dataSourceProperties">
+  		<props>
+  			<prop key="cachePrepStmts">${jdbc.postgre.dataSourceProperties.cachePrepStmts}</prop>
+  			<prop key="prepStmtCacheSize">${jdbc.postgre.dataSourceProperties.prepStmtCacheSize}</prop>
+  			<prop key="prepStmtCacheSqlLimit">${jdbc.postgre.dataSourceProperties.prepStmtCacheSqlLimit}</prop>
+  			<prop key="useServerPrepStmts">${jdbc.postgre.dataSourceProperties.useServerPrepStmts}</prop>
+  		</props>
+  	</property>
+  </bean>
+
+  <bean id="dataSourcePostgres" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+  	<constructor-arg ref="postHikariConfig"/>
+  </bean>
+
+
+
+</beans>

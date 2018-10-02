@@ -16,8 +16,6 @@
 		<property name="dataSource" ref="dataSourcePostgres"/>
 	</bean>
 
-
-
     <bean id="FQDNBeanNameGenerator" class="com.day.post.common.FQDNBeanNameGenerator"/>
 
     <!-- mapper자동등록 -->
@@ -38,6 +36,10 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory"/>
 	</bean>
+
+	<!-- <bean id="velocityEngine" class="org.springframework.ui.vel">
+	
+	</bean> -->
 
 
 </beans>

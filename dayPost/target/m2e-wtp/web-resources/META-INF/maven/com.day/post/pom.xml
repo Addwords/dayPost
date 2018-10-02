@@ -13,6 +13,7 @@
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<org.apache.tiles-version>3.0.8</org.apache.tiles-version>
+		<com.fasterxml.jackson.core-version>2.9.5</com.fasterxml.jackson.core-version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -169,6 +170,29 @@
             <version>3.4.5</version>
         </dependency>
 	
+		<!-- jasypt-spring31 -->
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt-spring31</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+        
+		<!-- jackson -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${com.fasterxml.jackson.core-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>${com.fasterxml.jackson.core-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>${com.fasterxml.jackson.core-version}</version>
+		</dependency>
 	
 	
 	

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:encryption="http://www.jasypt.org/schema/encryption"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.jasypt.org/schema/encryption http://www.jasypt.org/schema/encryption/jasypt-spring31-encryption-1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean id="environmentVariablesConfiguration" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+		<property name="algorithm" value="PBEWithMD5AndDES"/>
+		<property name="passwordEnvName" value="APP_ENCRYPTION_PASSWORD"/>
+	</bean>
+	
+	<bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+		<property name="config" ref="environmentVariablesConfiguration"/>
+		<!-- <property name="password" ref="rlaeodudakstp"/> 따로 설정하는 부분이 있는듯-->
+	</bean>
+	
+	<!-- 프로퍼티파일 설정하는 부분 -->
+	<bean id="propertyConfigurer" class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+		<constructor-arg ref="configurationEncryptor"/>
+		<property name="locations">
+			<list>
+				<value>classpath:config/jdbc.properties</value>
+			</list>	
+		</property>
+	</bean>
+	
+	
+</beans>

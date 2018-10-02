@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+	<!-- Transaction Setting-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourcePostgres"/>
+	</bean>
+
+    <bean id="FQDNBeanNameGenerator" class="com.day.post.common.FQDNBeanNameGenerator"/>
+
+    <!-- mapper자동등록 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    	<property name="basePackage" value="com.day.post.mapper"/>
+    	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    	<property name="nameGenerator" ref="FQDNBeanNameGenerator"/>
+    </bean>
+	
+	<!-- mybatis sessionFactory mybatis DB연결을 위한 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourcePostgres"/>
+		<property name="configLocation" value="classpath:/config/mybatis-configuration.xml"/>
+		<property name="mapperLocations" value="classpath*:mybatis/mappers/*.xml"/>
+	</bean>
+	
+	<!-- mybatis sqlSessionTemplate mybatis DB연결을 위한 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory"/>
+	</bean>
+
+	<!-- <bean id="velocityEngine" class="org.springframework.ui.vel">
+	
+	</bean> -->
+
+
+</beans>
