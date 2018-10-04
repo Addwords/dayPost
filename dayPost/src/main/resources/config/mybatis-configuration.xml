@@ -5,18 +5,43 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 
 <settings>
-	<setting name="cacheEnabled" value="true"/><!-- 설정에서 가가mapper에 설정된 캐시를 젖ㄴ역적으로 사용할지 말지에 대한 여부 -->
-	<setting name="lazyLoadingEnabled" value="false"/><!-- 늦은로딩을 사용할지에 대한 여부. 사용하지 않는다면 모두 즉시 로딩할 것이다. 이값은 fetchType 속성을 사용ㅇ해서 대체할 수 있다. -->
-	<setting name="multipartResultSetsEnabled" value="true"/><!-- 한개의 구문에서 여러개의 ResultSet을 허용할지의 여부(드라이버가 해당 기능을 지원해야 함) -->
-	<setting name="useColumnLabel" value="true"/><!-- 컬럼명 대신에 칼럼라벨을 사용. 드라이버마다 조금 다르게 작동한다. 문서와 간단한 테스트를 통해 실제 기대하는 것처럼 작동하는지 확인해야 한다. -->
-	<setting name="useGenerateedKeys" value="yes"/><!-- 생성키에 대한 JDBC 지원을 허용. 지원하는 드라이가 필요하다. true로설정하면 생성키를 강제로 생성한다. 일부 드라이버(ex, Derby)에서는 이 설정을 무시한다. -->
-	<setting name="defaultExecutorType" value="REUSE"/><!-- 기본값실행자(executor)설정. SIMPLE 실행자는 특별히 하는 것이 없다. REUSE 실행자는 PreparedStatement를 재사용 한다. BATCH 실행자는 구문을 재사용하고 수정을 배치처리한다. -->
-	<setting name="defaultStatementTimeout" value="25000"/><!-- 데이터베이스로의 응답을 얼마나 오래 기다릴지를 판단하는 시간을 셋팅 -->
-	<setting name="autoMappingBehavior" value="FULL"/><!-- Mybatis가 컬럼을 필드/프로퍼티에 자동으로 매핑할지와 방법에 대해 명시.  -->
-	<setting name="mapUnderscoreToCamelCase" value="true"/><!-- 정상작동 안함. 전통적인 데이터베이스 컬럼명 형태인 A_COLUMN을 CamelCase형태의 자바 프로퍼티명 형태인 aColumn으로 자동으로 매핑하도록 함.-->
-	<setting name="localCacheScope" value="SESSION"/><!-- 마이바티스는 순환참조를 막거나 반복된 쿼리의 속도를 높히기 위해 로컬캐시를 사용한다. 디폴트 설정인 SESSION을 사용해서 동일 세션의 모든 쿼리를 캐시한다. localCacheScope=STATEMENT 로 설정하면 로컬 세션은 구문 실행할떄만 사용하고 같은 SqlSession에서 두개의 다른 호출사이에는 데이터를 공유하지 않는다. -->
-	<setting name="defaultStatementTimeout" value="1000"/><!-- 데이터 가지고 오는 시간 30초로 설정 -->
-	<setting name="callSetterOnNulls" value="true"/>
+
+	<!-- 설정에서 가가mapper에 설정된 캐시를 전역적으로 사용할지 말지에 대한 여부 -->
+	<setting name="cacheEnabled" value="true"/> 
+	
+	<!-- 늦은로딩을 사용할지에 대한 여부. 사용하지 않는다면 모두 즉시 로딩할 것이다. 이값은 fetchType 속성을 사용ㅇ해서 대체할 수 있다. -->
+	<setting name="lazyLoadingEnabled" value="false"/> 
+	
+	<!-- 한개의 구문에서 여러개의 ResultSet을 허용할지의 여부(드라이버가 해당 기능을 지원해야 함) postgreDriver는 지원안함 -->
+	<!-- <setting name="multipartResultSetsEnabled" value="true"/> --> 
+	
+	<!-- 컬럼명 대신에 칼럼라벨을 사용. 드라이버마다 조금 다르게 작동한다. 문서와 간단한 테스트를 통해 실제 기대하는 것처럼 작동하는지 확인해야 한다. -->
+	<setting name="useColumnLabel" value="true"/> 
+
+	<!-- 생성키에 대한 JDBC 지원을 허용. 지원하는 드라이가 필요하다. true로설정하면 생성키를 강제로 생성한다. 일부 드라이버(ex, Derby, postgre)에서는 이 설정을 무시한다. -->
+	<!-- <setting name="useGenerateedKeys" value="yes"/> --> 
+	
+	<!-- 기본값실행자(executor)설정. SIMPLE 실행자는 특별히 하는 것이 없다. REUSE 실행자는 PreparedStatement를 재사용 한다. BATCH 실행자는 구문을 재사용하고 수정을 배치처리한다. -->
+	<setting name="defaultExecutorType" value="REUSE"/> 
+	
+	<!-- 데이터베이스로의 응답을 얼마나 오래 기다릴지를 판단하는 시간을 셋팅 -->
+	<setting name="defaultStatementTimeout" value="25000"/>
+	
+	<!-- Mybatis가 컬럼을 필드/프로퍼티에 자동으로 매핑할지와 방법에 대해 명시.  --> 
+	<setting name="autoMappingBehavior" value="FULL"/> 
+	
+	<!-- 정상작동 안함. 전통적인 데이터베이스 컬럼명 형태인 A_COLUMN을 CamelCase형태의 자바 프로퍼티명 형태인 aColumn으로 자동으로 매핑하도록 함.-->
+	<setting name="mapUnderscoreToCamelCase" value="true"/>
+	
+	<!-- 마이바티스는 순환참조를 막거나 반복된 쿼리의 속도를 높히기 위해 로컬캐시를 사용한다. 디폴트 설정인 SESSION을 사용해서 동일 세션의 모든 쿼리를 캐시한다.
+	     localCacheScope=STATEMENT 로 설정하면 로컬 세션은 구문 실행할떄만 사용하고 같은 SqlSession에서 두개의 다른 호출사이에는 데이터를 공유하지 않는다. --> 
+	<setting name="localCacheScope" value="SESSION"/> 
+	
+	<!-- 데이터 가지고 오는 시간 30초로 설정 -->
+	<setting name="defaultStatementTimeout" value="1000"/> 
+	
+	<!-- postgreDriver는 지원안함 -->
+	<!-- <setting name="callSetterOnNulls" value="true"/> -->
 </settings>
 
 
