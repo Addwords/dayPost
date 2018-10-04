@@ -41,8 +41,8 @@ var ajax = (function(){ //post, cmm
 					,data : jsonObj
 					,success : function(data){
 						if(data.errorYn == 'N'){
-							if(seccessFunction !== undefined && successFunction !== ''){
-								failFunction(data);
+							if(successFunction !== undefined && successFunction !== ''){
+								successFunction(data);
 							}
 						}else{
 							if(data.errorYn = 'Y'){

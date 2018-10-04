@@ -8,7 +8,7 @@
 
 	<div class="contain">
 		<ul>
-			<li><b class="cnt">0</b>건</li>
+			<li class="postcnt"><b>0</b>건</li>
 		</ul>
 		
 		
@@ -27,10 +27,6 @@
 				<td><a href="#" id="" class="btn black" onclick="">등록</a></td>
 			</tr>
 		</table>
-			
-			<br>
-			
-		
 		</form>
 	</div>
 <script type="text/javascript">
@@ -44,10 +40,14 @@ var main = (function(){
 		init : function(){
 			var htmstr = '';
 			console.log("init실행.");
-			
+			ajax.post('/di/selectPostList.day', {}, main.postcnt);
 		}
-		,postcnt : function(){
-			
+		,postcnt : function(data){
+			if(data.result && data.result != ''){
+				//var pcnt = validVal(data.result.listcnt) ? data.result.listcnt : 0;
+				var pcnt = data.result.listcnt ? data.result.listcnt : 0;
+				$('.postcnt b').text(pcnt.toLocaleString());
+			}
 		}
 	}
 })();
