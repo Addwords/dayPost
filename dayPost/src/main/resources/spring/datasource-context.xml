@@ -34,9 +34,10 @@
   	</property>
   </bean>
 
-  <bean id="dataSourcePostgres" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+  <bean id="dataSourcePostgres" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close" >
   	<constructor-arg ref="postHikariConfig"/>
   </bean>
+
 
 
 

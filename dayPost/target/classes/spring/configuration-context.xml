@@ -22,7 +22,7 @@
 	
 	<bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
 		<property name="config" ref="environmentVariablesConfiguration"/>
-		<!-- <property name="password" ref="rlaeodudakstp"/> 따로 설정하는 부분이 있는듯-->
+		<property name="password" value="rlaeodudakstp"/> 
 	</bean>
 	
 	<!-- 프로퍼티파일 설정하는 부분 -->

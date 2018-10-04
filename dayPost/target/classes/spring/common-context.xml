@@ -11,11 +11,20 @@
 	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
-	<!-- Transaction Setting-->
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="5"/>	
+		<property name="maxPoolSize" value="10"/>	
+		<property name="queueCapacity" value="25"/>	
+	</bean>
+
+	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/> -->
+
+		<!-- Transaction Setting--><!-- order 설정중 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSourcePostgres"/>
 	</bean>
-
+	
+	
     <bean id="FQDNBeanNameGenerator" class="com.day.post.common.FQDNBeanNameGenerator"/>
 
     <!-- mapper자동등록 -->
@@ -25,11 +34,12 @@
     	<property name="nameGenerator" ref="FQDNBeanNameGenerator"/>
     </bean>
 	
+
 	<!-- mybatis sessionFactory mybatis DB연결을 위한 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSourcePostgres"/>
-		<property name="configLocation"  value="classpath:/config/mybatis-configuration.xml"/>
-		<property name="mapperLocations" value="classpath*:mybatis/mappers/*.xml"/>
+		<property name="configLocation" value="classpath:/config/mybatis-configuration.xml"/>
+		<property name="mapperLocations" value="classpath:/mybatis/mappers/*.xml"/>
 	</bean>
 	
 	<!-- mybatis sqlSessionTemplate mybatis DB연결을 위한 -->
@@ -37,6 +47,8 @@
 		<constructor-arg index="0" ref="sqlSessionFactory"/>
 	</bean>
 
+
+	
 	<!-- <bean id="velocityEngine" class="org.springframework.ui.vel">
 	
 	</bean> -->

@@ -12,6 +12,9 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	<context:component-scan base-package="com.day.post" />
+
 	<!-- 트렌젝션 관련 -->
 	<aop:config>
 		<aop:pointcut id="defaultBusinessOperation" expression="execution(* com.day.post..*Impl.*(..))" />
@@ -25,6 +28,9 @@
 			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
 		</tx:attributes>
 	</tx:advice>
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- 인터셉터 관련 -->
 	<interceptors>
@@ -40,32 +46,36 @@
 		</interceptor>
 	</interceptors>
 
-
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	<context:component-scan base-package="com.day.post" />
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
 
 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<beans:property name="order" value="1"/>
 	</beans:bean>
-
-	<!-- jackson json view 설정 -->
-	<beans:bean id="jsonMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
-	<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
-		<beans:property name="objectMapper" ref="jsonMapper"/>
-	</beans:bean>
-
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-		<beans:property name="order" value="1" />		
+		<beans:property name="order" value="1" />
+	</beans:bean>
+	
+		<!-- jackson json view 설정 -->
+	<beans:bean id="jsonMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+	<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+		<beans:property name="objectMapper" ref="jsonMapper"/>
+	</beans:bean>
+	
+	<beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<beans:property name="messageConverters">
+			<beans:list>
+				<beans:value>text/html;charset=UTF-8</beans:value>
+				<beans:value>application/json;charset=UTF-8</beans:value>
+			</beans:list>
+		</beans:property>
+		<beans:property name="cacheSeconds" value="0"/>
 	</beans:bean>
 	
 	<!-- tiles3설정 -->

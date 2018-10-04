@@ -19,4 +19,5 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<setting name="callSetterOnNulls" value="true"/>
 </settings>
 
+
 </configuration>
