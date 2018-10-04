@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-<div class="header">
-	<h1>Let's git it!</h1>
-</div>
+<h1>에러다 에러!!</h1>
 </body>
 </html>

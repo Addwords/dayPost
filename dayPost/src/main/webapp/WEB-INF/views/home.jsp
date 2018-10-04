@@ -3,20 +3,34 @@
 <html>
 <body>
 
-<div class="header">
-	<h1>Let's git it!</h1>
-</div>
+
 <hr>
 
-	<div class="">
+	<div class="contain">
 		<ul>
 			<li><b class="cnt">0</b>건</li>
 		</ul>
-		<form name="wrt">
 		
-			<input type="text" name="title" id="title" class="">
-			<textarea id="contents"></textarea>
-		<a href="#" id="" class="btn black" onclick="">등록</a>
+		
+		<form name="wrt">
+		<table>
+			<tr>
+				<th>제목</th>
+				<td><input type="text" name="title" id="title" class="title"></td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td><textarea id="contents"></textarea></td>
+			</tr>
+			<tr>
+				<th></th>
+				<td><a href="#" id="" class="btn black" onclick="">등록</a></td>
+			</tr>
+		</table>
+			
+			<br>
+			
+		
 		</form>
 	</div>
 <script type="text/javascript">
@@ -30,6 +44,10 @@ var main = (function(){
 		init : function(){
 			var htmstr = '';
 			console.log("init실행.");
+			
+		}
+		,postcnt : function(){
+			
 		}
 	}
 })();
