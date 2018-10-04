@@ -68,7 +68,7 @@
 		<beans:property name="objectMapper" ref="jsonMapper"/>
 	</beans:bean>
 	
-	<beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+<!-- 	<beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<beans:property name="messageConverters">
 			<beans:list>
 				<beans:value>text/html;charset=UTF-8</beans:value>
@@ -76,7 +76,7 @@
 			</beans:list>
 		</beans:property>
 		<beans:property name="cacheSeconds" value="0"/>
-	</beans:bean>
+	</beans:bean> -->
 	
 	<!-- tiles3설정 -->
 	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
