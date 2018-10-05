@@ -7,7 +7,12 @@
 /* TAG */
 a{text-decoration:none;color:#222;}
 a:hover{text-decoration:none;}
-
+body{
+	margin-bottom : 120px;
+}
 
 /* CLASS */
 .btn.black{background:#2f2f2f;border:1px solid #555;color:#fff}
+.contents{border-right: none;border-bottom: none;width:300px;}
+.post_title{border-right: none;border-bottom: none;width:300px;}
+

@@ -10,7 +10,8 @@
 	<![CDATA[
 		SELECT *
 		FROM DAYDB.DI_POST_BAS
-		ORDER BY DAYID
+		WHERE USE_YN = 'Y'
+		ORDER BY CRE_DT DESC
 	]]>
 	</select>
 
@@ -19,6 +20,7 @@
 	<![CDATA[
 		SELECT COUNT(1)
 		FROM DAYDB.DI_POST_BAS
+		WHERE USE_YN = 'Y'
 	]]>
 	</select>
 
