@@ -10,29 +10,33 @@
 		<ul>
 			<li class="postcnt"><b>0</b>건</li>
 		</ul>
-		
+		<pre></pre>
 		
 		<form name="wrt" class='wrt' id='wrt'>
 		<table id='post'>
 			<tr>
-				<th class="post_th">제목</th>
-				<td><input type="text" name="post_title" id="post_title" class="post_title"></td>
+			<th></th>
 				<td>
-					<select>
-						<option value="Diary">일기 </option>
+					<select class="dropbox borderset">
+						<option value="Diary">일기</option>
 						<option value="Post">포스팅</option>
-						<option value="Info">정보   </option>
-						<option value="Tasty">맛집  </option>
+						<option value="Info">정보</option>
+						<option value="Tasty">맛집 </option>
 					</select>
 				</td>
 			</tr>
 			<tr>
+				<th class="post_th">제목</th>
+				<td><input type="text" name="post_title" id="post_title" class="post_title borderset w300 h30"></td>
+				
+			</tr>
+			<tr>
 				<th class="post_th">내용</th>
-				<td><textarea id="contents" placeholder="끄적끄적"></textarea></td>
+				<td><textarea class="contents borderset w300 h50" placeholder="끄적끄적" ></textarea></td>
 			</tr>
 			<tr>
 				<th></th>
-				<td><a href="#" id="postbtn" class="btn black" onclick="">등록</a></td>
+				<td><a href="#" id="postbtn" class="button has-icon" onclick="">등록</a></td>
 			</tr>
 		</table>
 		</form>
