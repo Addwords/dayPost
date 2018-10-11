@@ -17,7 +17,7 @@ input[type='text']{box-sizing:border-box;}
 .post_title{font-size: medium; font-weight: bold;}
 .contents{resize: none;}
 .btn.black{ background:#2f2f2f;border:1px solid #555;color:#fff;}
-
+.wrt{display:none;}
 /* SIZE */
 .w100{width:100px;} .w300{width:300px;}
 .h30{height:30px;} .h50{height:50px;}

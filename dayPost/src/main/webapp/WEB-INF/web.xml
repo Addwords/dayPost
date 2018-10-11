@@ -69,5 +69,10 @@
     	<welcome-file>/home.day</welcome-file>
     </welcome-file-list>
 
+	<!-- 에러페이지 설정 -->
+	<error-page>
+		<error-code>400</error-code>
+		<location>WEB-INF/views/error/accessDenied.jsp</location>
+	</error-page>
 
 </web-app>

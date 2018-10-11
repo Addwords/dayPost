@@ -10,7 +10,9 @@
 		<ul>
 			<li class="postcnt"><b>0</b>건</li>
 		</ul>
-		<pre></pre>
+		<ul>
+			<li> <a href="#">글쓰기</a> </li>
+		</ul>
 		
 		<form name="wrt" class='wrt' id='wrt'>
 		<table id='post'>
@@ -36,6 +38,7 @@
 			</tr>
 			<tr>
 				<th></th>
+				<td></td>
 				<td><a href="#" id="postbtn" class="button has-icon" onclick="">등록</a></td>
 			</tr>
 		</table>
