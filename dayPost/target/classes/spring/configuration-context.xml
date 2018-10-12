@@ -13,16 +13,14 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 	
-	<!-- Root Context: defines shared resources visible to all other web components -->
-	
+	<!-- 암호화 설정하는 부분 -->
 	<bean id="environmentVariablesConfiguration" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
 		<property name="algorithm" value="PBEWithMD5AndDES"/>
 		<property name="passwordEnvName" value="APP_ENCRYPTION_PASSWORD"/>
 	</bean>
-	
 	<bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
 		<property name="config" ref="environmentVariablesConfiguration"/>
-		<property name="password" value="rlaeodudakstp"/> 
+		<property name="password" value="rlaeodudakstp"/> <!-- 암호화 비밀번호 설정 -->
 	</bean>
 	
 	<!-- 프로퍼티파일 설정하는 부분 -->

@@ -11,13 +11,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-public class HomeController {
+public class UrlController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(UrlController.class);
 	
 	@RequestMapping(value = "/home.day", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		String loca = locale.toString();
+		if(loca.equals("ko_KR")) {
+			loca = "대한민국";
+		}
+		logger.info("환영합니다! 접속하신 지역은 {}입니다.", loca);
 		
 		//첫화면
 		return "home";

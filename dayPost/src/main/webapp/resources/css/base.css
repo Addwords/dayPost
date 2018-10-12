@@ -7,9 +7,7 @@
 /* TAG */
 a{text-decoration:none;color:#222;}
 a:hover{text-decoration:none;}
-body{
-	margin-bottom : 120px;
-}
+body{margin-bottom : 120px;}
 input[type='text']{box-sizing:border-box;}
 
 /* CLASS */
@@ -18,6 +16,8 @@ input[type='text']{box-sizing:border-box;}
 .contents{resize: none;}
 .btn.black{ background:#2f2f2f;border:1px solid #555;color:#fff;}
 .wrt{display:none;}
+.active{display:block;}
+
 /* SIZE */
 .w100{width:100px;} .w300{width:300px;}
 .h30{height:30px;} .h50{height:50px;}
@@ -255,7 +255,7 @@ p {
 }
 a.button,
 input.button {
-  padding: 0.75em 2em;
+  padding: 0.4em 0.6em;
   border-radius: 2em;
   display: inline-block;
   color: #fff;
@@ -267,7 +267,7 @@ input.button {
 a.button.has-icon,
 input.button.has-icon {
   position: relative;
-  text-indent: 1.4em;
+  /* text-indent: 1.4em; */
 }
 a.button.has-icon > svg,
 input.button.has-icon > svg {

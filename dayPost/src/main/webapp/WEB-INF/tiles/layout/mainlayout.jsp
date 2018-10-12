@@ -6,6 +6,7 @@
 <%@ include file="/WEB-INF/views/common/include/include.jspf"%>
 </head>
 <body>
+<!-- 적용할 타일들 설정하는 부분-->
 <tiles:insertAttribute name="lib"/>
 <tiles:insertAttribute name="header"/>
 <tiles:insertAttribute name="body"/>

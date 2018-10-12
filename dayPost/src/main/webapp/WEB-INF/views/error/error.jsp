@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>에러다 에러!!</h1>
+<h1>알수없는 오류 입니다. 관리자에게 문의하세요.</h1>
+<a href="#" onclick="history.go(-1);" class="btn black">돌아가기</a>
 </body>
 </html>

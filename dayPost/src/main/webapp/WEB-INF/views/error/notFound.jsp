@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1>접근이 거부되었습니다.</h1>
+<h1>페이지를 찾을 수 없습니다.</h1>
 <a href="#" onclick="history.go(-1);" class="btn black">돌아가기</a>
 </body>
 </html>

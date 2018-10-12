@@ -11,7 +11,7 @@
 			<li class="postcnt"><b>0</b>건</li>
 		</ul>
 		<ul>
-			<li> <a href="#">글쓰기</a> </li>
+			<li> <a href="#" class="button has-icon" id="wrtbtn">글쓰기</a> </li>
 		</ul>
 		
 		<form name="wrt" class='wrt' id='wrt'>
@@ -26,6 +26,7 @@
 						<option value="Tasty">맛집 </option>
 					</select>
 				</td>
+				<td><a href="#" onclick="wrtoff();">X</a></td>
 			</tr>
 			<tr>
 				<th class="post_th">제목</th>
@@ -66,6 +67,20 @@ var main = (function(){
 		}
 	}
 })();
+
+$(document).on('click','#wrtbtn',function wrton(e){
+	e.preventDefault();
+	if($(this).css('display','none')){
+		$('.wrt').css('display','block');
+	}else{
+		$('.wrt').css('display','none');
+	}
+	
+});
+
+function wrtoff(){
+	$('.wrt').css('display','none');
+}
 
 </script>
 
