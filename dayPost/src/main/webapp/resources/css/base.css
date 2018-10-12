@@ -9,13 +9,14 @@ a{text-decoration:none;color:#222;}
 a:hover{text-decoration:none;}
 body{margin-bottom : 120px;}
 input[type='text']{box-sizing:border-box;}
-
+li{list-style-type: none;}
+ul li{display: inline-block;}
 /* CLASS */
 .dropbox{ width:70px;height:30px;}
 .post_title{font-size: medium; font-weight: bold;}
 .contents{resize: none;}
 .btn.black{ background:#2f2f2f;border:1px solid #555;color:#fff;}
-.wrt{display:none;}
+.camo{display:none;}
 .active{display:block;}
 
 /* SIZE */

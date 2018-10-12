@@ -2,7 +2,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <html>
 <body>
-
+<style></style>
 
 <hr>
 
@@ -11,10 +11,12 @@
 			<li class="postcnt"><b>0</b>건</li>
 		</ul>
 		<ul>
-			<li> <a href="#" class="button has-icon" id="wrtbtn">글쓰기</a> </li>
+			<li> <a href="writing" class="button has-icon" id="wrtbtn">글쓰기</a> </li>
+			<li> <a href="list" class="button has-icon" id="addlist">목록</a> </li>
+			<li> <a href="list" class="button has-icon" id="listup">할일</a> </li>
 		</ul>
-		
-		<form name="wrt" class='wrt' id='wrt'>
+		<div class='camo'>
+		<form name="wrt" id='wrt'>
 		<table id='post'>
 			<tr>
 			<th></th>
@@ -26,7 +28,7 @@
 						<option value="Tasty">맛집 </option>
 					</select>
 				</td>
-				<td><a href="#" onclick="wrtoff();">X</a></td>
+				<!-- <td><a href="#" onclick="wrtoff();">X</a></td> -->
 			</tr>
 			<tr>
 				<th class="post_th">제목</th>
@@ -44,6 +46,7 @@
 			</tr>
 		</table>
 		</form>
+		</div>
 	</div>
 <script type="text/javascript">
 $(function(){
@@ -68,14 +71,19 @@ var main = (function(){
 	}
 })();
 
-$(document).on('click','#wrtbtn',function wrton(e){
-	e.preventDefault();
-	if($(this).css('display','none')){
-		$('.wrt').css('display','block');
-	}else{
-		$('.wrt').css('display','none');
-	}
+$(document).on('click','#wrtbtn',function(e){
+	//e.preventDefault();
+	var wrtb = document.getElementById('wrtbtn'),
+		wrts = document.getElementsByClassName('wrt');
 	
+	if($('.camo').hasClass('camo')){
+		$('.camo').addClass('active');
+		$('.camo').removeClass('camo');
+	}else{
+		$('.active').addClass('camo');
+		$('.active').removeClass('active');
+	}
+	return false;
 });
 
 function wrtoff(){
