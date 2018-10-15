@@ -13,9 +13,9 @@
 /out/
 /wrapper/
 /gradle/wrapper/gradle-wrapper.properties
-release.properties
-.classpath
-.project
+/release.properties
+/.classpath
+/.project
 
 .springBeans
 #*.DS_store
