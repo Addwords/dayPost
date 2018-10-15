@@ -13,7 +13,7 @@
 /out/
 /wrapper/
 /gradle/wrapper/gradle-wrapper.properties
-pom.properties
+release.properties
 .classpath
 .project
 
