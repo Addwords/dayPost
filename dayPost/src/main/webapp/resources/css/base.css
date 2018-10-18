@@ -11,6 +11,7 @@ body{margin-bottom : 120px;}
 input[type='text']{box-sizing:border-box;}
 li{list-style-type: none;}
 ul li{display: inline-block;}
+
 /* CLASS */
 .dropbox{ width:70px;height:30px;}
 .post_title{font-size: medium; font-weight: bold;}
@@ -19,9 +20,13 @@ ul li{display: inline-block;}
 .camo{display:none;}
 .active{display:block;}
 
+/* ID */
+#postbtn{float: right;}
+
+
 /* SIZE */
 .w100{width:100px;} .w300{width:300px;}
-.h30{height:30px;} .h50{height:50px;}
+.h30{height:30px;} .h50{height:50px;} .h100{height:100px;} .h150{height:150px;} .h200{height:200px;}
 
 
 /* BORDER */

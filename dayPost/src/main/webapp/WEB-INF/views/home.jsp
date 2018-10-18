@@ -37,11 +37,11 @@
 			</tr>
 			<tr>
 				<th class="post_th">내용</th>
-				<td><textarea class="contents borderset w300 h50" placeholder="끄적끄적" ></textarea></td>
+				<td><textarea class="contents borderset w300 h150" placeholder="끄적끄적" ></textarea></td>
 			</tr>
 			<tr>
 				<th></th>
-				<td></td>
+				<!-- <td></td> -->
 				<td><a href="#" id="postbtn" class="button has-icon" onclick="">등록</a></td>
 			</tr>
 		</table>
