@@ -1,22 +1,21 @@
 package com.day.post.vo;
 
-import java.util.Date;
 
 public class DiPostVO {
 
-	private int dayid; //게시글아이디
-	private String hdctg; //분류
-	private String title; //제목
+	private int dayid;       //게시글아이디
+	private String hdctg;    //분류
+	private String title;    //제목
 	private String contents; //내용
-	private String useYn; //사용여부
-	private Date cretDt; //생성일
-	private Date updDt; //수정일
-	private int totalcnt; //전체건수
+	private String useYn;    //사용여부
+	private String cretDt;   //생성일
+	private String updDt;    //수정일
+	private int totalcnt;    //전체건수
 	
-	public Date getupdDt() {
+	public String getupdDt() {
 		return updDt;
 	}
-	public void setupdDt(Date updDt) {
+	public void setupdDt(String updDt) {
 		this.updDt = updDt;
 	}
 	public int getTotalcnt() {
@@ -56,10 +55,10 @@ public class DiPostVO {
 		this.useYn = useYn;
 		return this;
 	}
-	public Date getcretDt() {
+	public String getcretDt() {
 		return cretDt;
 	}
-	public void setcretDt(Date cretDt) {
+	public void setcretDt(String cretDt) {
 		this.cretDt = cretDt;
 	}
 	

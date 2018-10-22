@@ -107,7 +107,7 @@ var list = (function(){
 					hstr += '<li><b>['+d.hdctg+']</b></li>';
 					hstr += '<li><b>'+d.title+'</b></li><br>';
 					hstr += '<li>'+d.contents+'</li><br>';
-					hstr += '<li>'+d.cretdt+'</li>';
+					hstr += '<li>'+d.cretDt+'</li>';
 
 					
 				}
