@@ -15,35 +15,38 @@
 			<li> <a href="#list" class="button has-icon" id="addlist">목록</a> </li>
 			<li> <a href="#todo" class="button has-icon" id="listup">할일</a> </li>
 		</ul>
+		<%-- 리스트 흩날리기 --%>
 		<div class="lists"></div>
+
+		<%-- 글작성 폼 --%>
 		<div class='camo'>
-		<form name="wrt" id='wrt'>
+		<form name="wrtForm" id='wrtForm' method="post">
 		<table id='post'>
 			<tr>
 			<th></th>
 				<td>
-					<select class="dropbox borderset">
-						<option value="Diary">일기</option>
-						<option value="Post">포스팅</option>
-						<option value="Info">정보</option>
-						<option value="Tasty">맛집 </option>
+					<select class="dropbox borderset" name="hdctg">
+						<option name="Diary" value="일기">일기</option>
+						<option name="Post" value="포스팅">포스팅</option>
+						<option name="Info" value="정보">정보</option>
+						<option name="Tasty" value="맛집">맛집 </option>
 					</select>
 				</td>
 				<!-- <td><a href="#" onclick="wrtoff();">X</a></td> -->
 			</tr>
 			<tr>
 				<th class="post_th">제목</th>
-				<td><input type="text" name="post_title" id="post_title" class="post_title borderset w300 h30"></td>
+				<td><input type="text" name="potitle" id="potitle" class="post_title borderset w300 h30"></td>
 				
 			</tr>
 			<tr>
 				<th class="post_th">내용</th>
-				<td><textarea class="contents borderset w300 h150" placeholder="끄적끄적" ></textarea></td>
+				<td><textarea name="contents" class="contents borderset w300 h150" placeholder="끄적끄적" ></textarea></td>
 			</tr>
 			<tr>
 				<th></th>
 				<!-- <td></td> -->
-				<td><a href="#submit" id="postbtn" class="button has-icon" onclick="">등록</a></td>
+				<td><a href="#submit" id="postbtn" class="button has-icon" onclick="main.submit();">등록</a></td>
 			</tr>
 		</table>
 		</form>
@@ -74,13 +77,18 @@ var main = (function(){
 		,todoList : function(data){
 
 		}
+		,submit : function(){
+			console.log('실행');
+			document.wrtForm.action = '/di/insertPost.day';
+			wrtForm.submit();
+		}
 	}
 })();
 
 $(document).on('click','#wrtbtn',function(e){
 	//e.preventDefault();
-	var wrtb = document.getElementById('wrtbtn'),
-		wrts = document.getElementsByClassName('wrt');
+	//var wrtb = document.getElementById('wrtbtn'),
+	//	wrts = document.getElementsByClassName('wrt');
 	
 	if($('.camo').hasClass('camo')){
 		$('.camo').addClass('active');

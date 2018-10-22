@@ -84,6 +84,8 @@ var msg = (function(){//get
 			switch(state){
 			case 'ajaxError' : value = 'AJAX에러!'; break;
 			//case '' : value = ''; break;
+			//case '' : value = ''; break;
+			//case '' : value = ''; break;
 			}
 			return value;
 		 }//get End
@@ -96,6 +98,7 @@ var list = (function(){
 		 get : function(){
 			 
 		 }
+		 //list 
 		,set : function(data, divid){
 			var hstr = '';
 
@@ -103,14 +106,16 @@ var list = (function(){
 				for(i in data){
 					var d = data[i];
 
-					hstr += '<ul>';
+					hstr += '<ul class="ulist">';
 					hstr += '<li><b>['+d.hdctg+']</b></li>';
-					hstr += '<li><b>'+d.title+'</b></li><br>';
+					hstr += '<li><b>'+d.potitle+'</b></li><br>';
 					hstr += '<li>'+d.contents+'</li><br>';
 					hstr += '<li>'+d.cretDt+'</li>';
 
 					
 				}
+			}else{
+				hstr = "게시글이 없습니다."
 			}
 			divid.html(hstr);
 		}

@@ -6,12 +6,12 @@
 
 	<!-- 게시글 list -->
 	<select id="selectPostList" resultType="com.day.post.vo.DiPostVO">
-
+	<!-- VO랑 변수명 맞춰야함 -->
 	<![CDATA[
 		SELECT 
 			 DAYID    --아이디
 			,HDCTG    --분류
-			,TITLE    --제목
+			,POTITLE    --제목
 			,CONTENTS --내용
 			,USEYN    --사용여부
 			,CRETDT   --생성일
@@ -25,12 +25,31 @@
 	<!-- 게시글 전체 건수 -->
 	<select id="selectPostCnt" resultType="Integer">
 	<![CDATA[
-		SELECT COUNT(1)
+		SELECT COUNT(DAYID)
 		FROM DAYDB.DI_POST_BAS
 		WHERE USEYN = 'Y'
 	]]>
 	</select>
 
+	<!-- 게시글 작성 -->
+	<insert id="insertPost" parameterType="com.day.post.vo.DiPostVO">
+	<![CDATA[
+		INSERT INTO DAYDB.DI_POST_BAS
+		(
+		   HDCTG
+		  ,POTITLE
+		  ,CONTENTS
+		  ,CRETDT
+		)
+		VALUES 
+		(
+		  #{hdctg}
+		 ,#{potitle}
+		 ,#{contents}
+		 ,NOW()
+		)
+	]]>
+	</insert>
 
 
 </mapper>

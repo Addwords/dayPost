@@ -5,7 +5,7 @@ public class DiPostVO {
 
 	private int dayid;       //게시글아이디
 	private String hdctg;    //분류
-	private String title;    //제목
+	private String potitle;  //제목
 	private String contents; //내용
 	private String useYn;    //사용여부
 	private String cretDt;   //생성일
@@ -36,11 +36,13 @@ public class DiPostVO {
 	public void setHdctg(String hdctg) {
 		this.hdctg = hdctg;
 	}
-	public String getTitle() {
-		return title;
+	public String getPotitle()
+	{
+		return this.potitle;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setPotitle(String potitle)
+	{
+		this.potitle = potitle;
 	}
 	public String getContents() {
 		return contents;

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,6 +25,7 @@ public class DiPostController {
 	@Autowired
 	private DiPostService diPostService;
 	
+	//게시글 건수와 게시글 뿌리기
 	@RequestMapping(value="/di/selectPostList.day", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> selectPostList(){
 		
@@ -43,4 +45,12 @@ public class DiPostController {
 		return map;
 	}
 	
+	@RequestMapping(value="/di/insertPost.day", method = RequestMethod.POST)
+	public String insertPost(@ModelAttribute DiPostVO diPostVO){
+		
+		log.info("입력을 시작합니다.");
+		diPostService.insertPost(diPostVO);
+		log.info("입력완료.");
+		return "home";
+	}
 }

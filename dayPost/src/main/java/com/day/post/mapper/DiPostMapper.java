@@ -12,4 +12,6 @@ public interface DiPostMapper {
 	//게시글 list
 	List<DiPostVO> selectPostList();
 	
+	//게시글 등록
+	int insertPost();
 }
