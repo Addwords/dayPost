@@ -46,7 +46,7 @@
 			<tr>
 				<th></th>
 				<!-- <td></td> -->
-				<td><a href="#submit" id="postbtn" class="button has-icon" onclick="main.submit();">등록</a></td>
+				<td><a href="#submit" id="postbtn" class="button has-icon" onclick="main.submit();return false;">등록</a></td>
 			</tr>
 		</table>
 		</form>

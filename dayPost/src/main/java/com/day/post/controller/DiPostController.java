@@ -51,6 +51,6 @@ public class DiPostController {
 		log.info("입력을 시작합니다.");
 		diPostService.insertPost(diPostVO);
 		log.info("입력완료.");
-		return "home";
+		return "/home.day";
 	}
 }

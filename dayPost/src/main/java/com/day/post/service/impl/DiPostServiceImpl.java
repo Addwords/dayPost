@@ -43,7 +43,7 @@ public class DiPostServiceImpl implements DiPostService{
 	@Override
 	public int insertPost(DiPostVO diPostVO) {
 
-		int insertCnt = diPostMapper.insertPost();
+		int insertCnt = diPostMapper.insertPost(diPostVO);
 		int postID = diPostVO.getDayid();
 		log.debug("게시글번호 {}",postID);
 	
