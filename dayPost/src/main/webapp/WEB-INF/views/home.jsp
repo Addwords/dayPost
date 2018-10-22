@@ -11,10 +11,11 @@
 			<li class="postcnt"><b>0</b>건</li>
 		</ul>
 		<ul>
-			<li> <a href="writing" class="button has-icon" id="wrtbtn">글쓰기</a> </li>
-			<li> <a href="list" class="button has-icon" id="addlist">목록</a> </li>
-			<li> <a href="list" class="button has-icon" id="listup">할일</a> </li>
+			<li> <a href="#writing" class="button has-icon" id="wrtbtn">글쓰기</a> </li>
+			<li> <a href="#list" class="button has-icon" id="addlist">목록</a> </li>
+			<li> <a href="#todo" class="button has-icon" id="listup">할일</a> </li>
 		</ul>
+		<div class="lists"></div>
 		<div class='camo'>
 		<form name="wrt" id='wrt'>
 		<table id='post'>
@@ -42,7 +43,7 @@
 			<tr>
 				<th></th>
 				<!-- <td></td> -->
-				<td><a href="#" id="postbtn" class="button has-icon" onclick="">등록</a></td>
+				<td><a href="#submit" id="postbtn" class="button has-icon" onclick="">등록</a></td>
 			</tr>
 		</table>
 		</form>
@@ -65,8 +66,13 @@ var main = (function(){
 			if(data.result && data.result != ''){
 				//var pcnt = validVal(data.result.listcnt) ? data.result.listcnt : 0;
 				var pcnt = data.result.listcnt ? data.result.listcnt : 0;
+				
 				$('.postcnt b').text(pcnt.toLocaleString());
+				list.set(data.result.resultlist, $('.lists'))
 			}
+		}
+		,todoList : function(data){
+
 		}
 	}
 })();
@@ -85,10 +91,6 @@ $(document).on('click','#wrtbtn',function(e){
 	}
 	return false;
 });
-
-function wrtoff(){
-	$('.wrt').css('display','none');
-}
 
 </script>
 

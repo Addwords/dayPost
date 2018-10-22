@@ -8,10 +8,17 @@
 	<select id="selectPostList" resultType="com.day.post.vo.DiPostVO">
 
 	<![CDATA[
-		SELECT *
-		FROM DAYDB.DI_POST_BAS
-		WHERE USE_YN = 'Y'
-		ORDER BY CRE_DT DESC
+		SELECT 
+			 DAYID    --아이디
+			,HDCTG    --분류
+			,TITLE    --제목
+			,CONTENTS --내용
+			,USEYN    --사용여부
+			,CRETDT   --생성일
+			,UPDDT    --수정일
+		 FROM DAYDB.DI_POST_BAS
+	    WHERE USEYN = 'Y'
+		ORDER BY CRETDT DESC
 	]]>
 	</select>
 
@@ -20,7 +27,7 @@
 	<![CDATA[
 		SELECT COUNT(1)
 		FROM DAYDB.DI_POST_BAS
-		WHERE USE_YN = 'Y'
+		WHERE USEYN = 'Y'
 	]]>
 	</select>
 

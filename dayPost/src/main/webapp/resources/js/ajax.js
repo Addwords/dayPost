@@ -14,6 +14,7 @@ var A = (function(){
  * script 모음
  * 1. AJAX
  * 2. MSG
+ * 3. LIST
  * * * * * * * * */
 
 
@@ -87,4 +88,31 @@ var msg = (function(){//get
 			return value;
 		 }//get End
 	}//msg return End
+})();
+
+//List 함수 설정
+var list = (function(){
+	return{
+		 get : function(){
+			 
+		 }
+		,set : function(data, divid){
+			var hstr = '';
+
+			if(data && data.length > 0){
+				for(i in data){
+					var d = data[i];
+
+					hstr += '<ul>';
+					hstr += '<li><b>['+d.hdctg+']</b></li>';
+					hstr += '<li><b>'+d.title+'</b></li><br>';
+					hstr += '<li>'+d.contents+'</li><br>';
+					hstr += '<li>'+d.cretdt+'</li>';
+
+					
+				}
+			}
+			divid.html(hstr);
+		}
+	}
 })();

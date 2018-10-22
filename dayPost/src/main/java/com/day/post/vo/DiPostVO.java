@@ -1,21 +1,23 @@
 package com.day.post.vo;
 
+import java.util.Date;
+
 public class DiPostVO {
 
 	private int dayid; //게시글아이디
 	private String hdctg; //분류
 	private String title; //제목
 	private String contents; //내용
-	private String use_yn; //사용여부
-	private String cret_dt; //생성일
-	private String upd_dt; //수정일
+	private String useYn; //사용여부
+	private Date cretDt; //생성일
+	private Date updDt; //수정일
 	private int totalcnt; //전체건수
 	
-	public String getUpd_dt() {
-		return upd_dt;
+	public Date getupdDt() {
+		return updDt;
 	}
-	public void setUpd_dt(String upd_dt) {
-		this.upd_dt = upd_dt;
+	public void setupdDt(Date updDt) {
+		this.updDt = updDt;
 	}
 	public int getTotalcnt() {
 		return totalcnt;
@@ -47,18 +49,18 @@ public class DiPostVO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public String getUse_yn() {
-		return use_yn;
+	public String getuseYn() {
+		return useYn;
 	}
-	public DiPostVO setUse_yn(String use_yn) {
-		this.use_yn = use_yn;
+	public DiPostVO setuseYn(String useYn) {
+		this.useYn = useYn;
 		return this;
 	}
-	public String getCret_dt() {
-		return cret_dt;
+	public Date getcretDt() {
+		return cretDt;
 	}
-	public void setCret_dt(String cret_dt) {
-		this.cret_dt = cret_dt;
+	public void setcretDt(Date cretDt) {
+		this.cretDt = cretDt;
 	}
 	
 }
