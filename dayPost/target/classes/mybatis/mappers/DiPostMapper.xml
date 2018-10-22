@@ -39,6 +39,7 @@
 		   HDCTG
 		  ,POTITLE
 		  ,CONTENTS
+		  ,USEYN
 		  ,CRETDT
 		)
 		VALUES 
@@ -46,6 +47,7 @@
 		  #{hdctg}
 		 ,#{potitle}
 		 ,#{contents}
+		 ,'Y'
 		 ,NOW()
 		)
 	]]>
